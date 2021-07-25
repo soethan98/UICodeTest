@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+  <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      tools:context=".CarDetailActivity"
+      >
+
+    <ImageButton
+        android:id="@+id/imgBtnBack"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_margin="@dimen/spacing_medium"
+        android:background="@android:color/transparent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_arrow_back"
+        app:tint="@color/black"
+        />
+    <ImageView
+        android:id="@+id/ivCopy"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="@dimen/spacing_medium"
+        android:layout_marginEnd="@dimen/spacing_medium"
+        android:src="@drawable/ic_action_copy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/tvBookingId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/spacing_4"
+        android:text="Booking ID : 4423331"
+        android:textAppearance="?textAppearanceBody1"
+        app:layout_constraintBottom_toBottomOf="@id/ivCopy"
+        app:layout_constraintEnd_toStartOf="@id/ivCopy"
+        app:layout_constraintTop_toTopOf="@id/ivCopy"
+        />
+
+    <TextView
+        android:id="@+id/tvCarName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_medium"
+        android:text="Mazda 3"
+        android:textAppearance="?textAppearanceHeadline4"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/imgBtnBack"
+        app:layout_constraintTop_toBottomOf="@id/imgBtnBack"
+        />
+    <TextView
+        android:id="@+id/tvCarModel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SMS1000Z"
+        android:textAppearance="?textAppearanceHeadline6"
+        app:layout_constraintStart_toStartOf="@id/tvCarName"
+        app:layout_constraintTop_toBottomOf="@id/tvCarName"
+        />
+    <TextView
+        android:id="@+id/tvStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_small"
+        android:background="@drawable/bg_round_border_blue_fill"
+        android:paddingHorizontal="@dimen/spacing_4"
+        android:paddingVertical="@dimen/spacing_2"
+        android:text="CONFIRMED"
+        android:textAlignment="center"
+        android:textAppearance="?textAppearanceButton"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/tvCarModel"
+        app:layout_constraintStart_toEndOf="@id/tvCarModel"
+        app:layout_constraintTop_toTopOf="@id/tvCarModel"
+        />
+
+    <LinearLayout
+        android:id="@+id/llDateTimeInfo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_medium"
+        android:layout_marginBottom="@dimen/spacing_medium"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/imgBtnBack"
+        app:layout_constraintTop_toBottomOf="@id/tvCarModel"
+        >
+      <LinearLayout
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:orientation="vertical"
+          >
+        <TextView
+            android:id="@+id/tvStartDatelbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Start date"
+            android:textAppearance="?textAppearanceCaption"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mon,1 Nov 20\n11:45am"
+            android:textAppearance="?textAppearanceSubtitle2"
+            />
+      </LinearLayout>
+      <LinearLayout
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:orientation="vertical"
+          >
+        <TextView
+            android:id="@+id/tvEndDatelbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="End date"
+            android:textAppearance="?textAppearanceCaption"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tue,2 Nov 20\n11:45am"
+            android:textAppearance="?textAppearanceSubtitle2"
+            />
+      </LinearLayout>
+      <LinearLayout
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="0.9"
+          android:orientation="vertical"
+          >
+        <include layout="@layout/layout_duration" />
+      </LinearLayout>
+
+    </LinearLayout>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnAddToCal"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_small"
+        android:drawableLeft="@drawable/ic_add"
+        android:drawableTint="@color/black"
+        android:text="Add to calendar"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/imgBtnBack"
+        app:layout_constraintTop_toBottomOf="@id/llDateTimeInfo"
+        />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnExtend"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_small"
+        android:drawableLeft="@drawable/ic_extend_text"
+        android:drawableTint="@color/black"
+        android:text="Extend"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@id/btnAddToCal"
+        app:layout_constraintStart_toEndOf="@id/btnAddToCal"
+        app:layout_constraintTop_toTopOf="@id/btnAddToCal"
+        />
+
+    <ImageView
+        android:id="@+id/imgCarPlaceHolder"
+        app:layout_constraintTop_toBottomOf="@id/btnExtend"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_placeholder_car_2"/>
+
+    <View
+        android:layout_marginBottom="@dimen/spacing_medium"
+        android:layout_marginHorizontal="@dimen/spacing_4"
+        android:id="@+id/viewdot1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="8dp"
+        android:layout_height="8dp"
+        android:background="@drawable/bg_fill_dot_blue"
+        app:layout_constraintTop_toBottomOf="@id/imgCarPlaceHolder"
+        />
+    <View
+        android:layout_marginHorizontal="@dimen/spacing_4"
+        android:id="@+id/viewdot2"
+        app:layout_constraintStart_toEndOf="@id/viewdot1"
+        app:layout_constraintTop_toTopOf="@id/viewdot1"
+        app:layout_constraintBottom_toBottomOf="@id/viewdot1"
+        android:layout_width="8dp"
+        android:layout_height="8dp"
+        android:background="@drawable/bg_fill_dot_gray"
+        />
+    <View
+        android:layout_marginHorizontal="@dimen/spacing_4"
+        android:id="@+id/viewdot3"
+        app:layout_constraintStart_toEndOf="@id/viewdot2"
+        app:layout_constraintTop_toTopOf="@id/viewdot1"
+        app:layout_constraintBottom_toBottomOf="@id/viewdot1"
+        android:layout_width="8dp"
+        android:layout_height="8dp"
+        android:background="@drawable/bg_fill_dot_gray"
+        />
+
+
+    <TextView
+        android:id="@+id/tvPickCarLbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pick up car at"
+        android:textAppearance="?textAppearanceBody1"
+        android:textColor="@color/colorPink"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/spacing_medium"
+        app:layout_constraintStart_toStartOf="@id/imgBtnBack"
+        app:layout_constraintTop_toBottomOf="@id/viewdot1"
+        />
+
+    <ImageView
+        android:id="@+id/imgMap"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/map_placeholder"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toStartOf="@id/imgBtnBack"
+        app:layout_constraintTop_toBottomOf="@id/tvPickCarLbl"
+        />
+
+    <TextView
+        android:layout_marginStart="@dimen/spacing_small"
+        android:id="@+id/tvAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="194 Punggol Road P100\nMultiStorey Car Park"
+        android:textAppearance="?textAppearanceBody1"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/imgMap"
+        app:layout_constraintTop_toTopOf="@id/imgMap"
+        />
+    <TextView
+        android:id="@+id/tvFloor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Level 4/Lot123-456"
+        android:textAppearance="?textAppearanceBody1"
+        app:layout_constraintStart_toStartOf="@id/tvAddress"
+        app:layout_constraintTop_toBottomOf="@id/tvAddress"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnDirection"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_small"
+        android:drawableLeft="@drawable/ic_direction_text"
+        android:drawableTint="@color/black"
+        android:text="Get Directions"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@id/tvAddress"
+        app:layout_constraintTop_toBottomOf="@id/tvFloor"
+        />
+    <ImageView
+        android:id="@+id/ivHelp"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_small"
+        android:background="@drawable/bg_round_black_border"
+        android:padding="@dimen/spacing_small"
+        android:src="@drawable/ic_help"
+        app:layout_constraintStart_toStartOf="@id/tvAddress"
+        app:layout_constraintTop_toBottomOf="@id/btnDirection"
+        />
+    <ImageView
+        android:id="@+id/ivHelp1"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_small"
+        android:background="@drawable/bg_round_black_border"
+        android:padding="@dimen/spacing_small"
+        android:src="@drawable/ic_help"
+        app:layout_constraintStart_toEndOf="@id/ivHelp"
+        app:layout_constraintTop_toBottomOf="@id/btnDirection"
+        />
+    <ImageView
+        android:id="@+id/ivHelp2"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_small"
+        android:background="@drawable/bg_round_black_border"
+        android:padding="@dimen/spacing_small"
+        android:src="@drawable/ic_help"
+        app:layout_constraintStart_toEndOf="@id/ivHelp1"
+        app:layout_constraintTop_toBottomOf="@id/btnDirection"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_margin="@dimen/spacing_small"
+        android:background="@drawable/bg_round_black_border"
+        android:gravity="center"
+        android:padding="@dimen/spacing_small"
+        android:text="+10"
+        android:textAppearance="?textAppearanceBody2"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/ivHelp2"
+        app:layout_constraintTop_toBottomOf="@id/btnDirection"
+        />
+
+    <TextView
+        android:layout_marginTop="@dimen/spacing_medium"
+        android:id="@+id/tvEstTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Estimated Total"
+        android:textAppearance="?textAppearanceBody1"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/imgBtnBack"
+        app:layout_constraintTop_toBottomOf="@id/ivHelp2"
+        />
+    <TextView
+        android:id="@+id/tvTotalAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Amount is not final"
+        android:textAppearance="?textAppearanceCaption"
+        app:layout_constraintStart_toStartOf="@id/tvEstTotal"
+        app:layout_constraintTop_toBottomOf="@id/tvEstTotal"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:id="@+id/btnEstAmount"
+        android:layout_height="wrap_content"
+        android:drawableRight="@drawable/ic_arrow_forward"
+        android:text="S$52.00"
+        android:textAppearance="?attr/textAppearanceBody1"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@id/tvEstTotal"
+        app:layout_constraintBottom_toBottomOf="@id/tvTotalAmount"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+    <View
+        android:id="@+id/view3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/spacing_small"
+        android:background="@color/gray"
+        app:layout_constraintTop_toBottomOf="@id/btnEstAmount" />
+
+    <TextView
+        android:paddingVertical="@dimen/spacing_medium"
+        android:id="@+id/tvNeedHelp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Need Help"
+        android:textAppearance="?textAppearanceBody1"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/imgBtnBack"
+        app:layout_constraintTop_toBottomOf="@id/view3"
+        />
+
+    <ImageView
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="@dimen/spacing_medium"
+        app:layout_constraintTop_toTopOf="@id/tvNeedHelp"
+        app:layout_constraintBottom_toBottomOf="@id/tvNeedHelp"
+        android:src="@drawable/ic_help"/>
+
+    <View
+        android:id="@+id/view5"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/spacing_small"
+        android:background="@color/gray"
+        app:layout_constraintTop_toBottomOf="@id/tvNeedHelp" />
+
+    <TextView
+        android:paddingVertical="@dimen/spacing_medium"
+        android:id="@+id/tvCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancel the booking"
+        android:textAppearance="?textAppearanceBody1"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/imgBtnBack"
+        app:layout_constraintTop_toBottomOf="@id/view5"
+        />
+
+    <ImageView
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="@dimen/spacing_medium"
+        app:layout_constraintTop_toTopOf="@id/tvCancel"
+        app:layout_constraintBottom_toBottomOf="@id/tvCancel"
+        android:src="@drawable/ic_help_cancel"/>
+
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
